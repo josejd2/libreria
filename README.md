@@ -10,18 +10,13 @@ El sistema cuenta con tres tipos de usuarios, cada uno con diferentes permisos y
 
 ### 👤 Usuario
 - Puede ver los libros que tiene alquilados actualmente.
-- Puede consultar información del catálogo.
 
 ### 🛠️ Administrador
 - Puede ver todos los libros alquilados por todos los usuarios.
 - Puede administrar los usuarios del sistema (crear, editar, eliminar).
-- Tiene acceso total a la gestión del inventario de libros.
 
 ### 🧾 Gerente
 - Realiza los **alquileres** de libros.
-- Selecciona el usuario al que se le hará el préstamo.
-- Gestiona las devoluciones.
-- Actualiza el estado de los libros alquilados.
 
 ---
 
