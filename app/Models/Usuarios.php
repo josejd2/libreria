@@ -3,24 +3,26 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable; 
 
-class Usuarios extends Model
+class Usuarios extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
 
     protected $table = 'usuarios';
 
     protected $fillable = [
         'usuario',
         'password',
-        'perfil',
+        'perfil'
     ];
-
+    
     protected $hidden = [
-        'password',
+        'password'
     ];
 
+    // Aquí se cifra la contraseña automáticamente al crear un nuevo usuario
     protected static function boot()
     {
         parent::boot();
