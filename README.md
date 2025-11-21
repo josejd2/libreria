@@ -81,6 +81,10 @@ Configura tu conexión a la base de datos:
     DB_USERNAME=root
     DB_PASSWORD=
 
+Configurar la sesiones:
+
+    SESSION_DRIVER=file
+    
 ---
 
 ### 4️⃣ Base de Datos
