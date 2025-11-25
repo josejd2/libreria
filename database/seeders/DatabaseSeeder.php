@@ -13,7 +13,11 @@ class DatabaseSeeder extends Seeder
     {
         // Llamar a otros seeders
         $this->call([
-            UsuariosSeeder::class, // Seeder de usuarios
+            UsuariosSeeder::class,
+            ClientesSeeder::class,
+            AutoresSeeder::class,
+            LibrosSeeder::class,
+            AlquilanSeeder::class
         ]);
     }
 }

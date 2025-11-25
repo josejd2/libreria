@@ -11,10 +11,13 @@ class UsuariosSeeder extends Seeder
     {
         Usuarios::factory()->create([
             'usuario' => 'josejd2',
-            'password' => '1234',
+            'password' => 'admin',
             'perfil' => 'admin'
         ]);
-
-        Usuarios::factory(9)->create();
+        Usuarios::factory()->create([
+            'usuario' => 'pepe',
+            'password' => '1234',
+            'perfil' => 'gerente'
+        ]);
     }
 }
