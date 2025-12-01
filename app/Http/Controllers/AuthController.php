@@ -13,7 +13,7 @@ class AuthController extends Controller
     // Muestra la vista del formulario de inicio de sesión.
     public function showLoginForm()
     {
-        return view('pages.login');
+        return view('auth.login');
     }
 
     public function login(Request $request)
@@ -39,8 +39,16 @@ class AuthController extends Controller
         // *EXITO: Inicia la sesión de Laravel.
         Auth::login($usuario);
 
-        // Redirige al usuario a la página a la que quería ir, o a la principal ('/').
-        return redirect()->intended('/');
+        // Regenera la sesión para evitar ataques de fijación de sesión (Seguridad).
+        $request->session()->regenerate();
+
+        // Redirige al dashboard según el perfil
+        return match ($usuario->perfil) {
+            'admin' => redirect()->intended(route('admin.dashboard')),
+            'gerente' => redirect()->intended(route('gerente.dashboard')),
+            'usuario' => redirect()->intended(route('user.dashboard')),
+            default => redirect()->intended(route('login'))
+        };
     }
 
     public function logout(Request $request)

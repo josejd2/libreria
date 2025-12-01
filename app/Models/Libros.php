@@ -17,4 +17,12 @@ class Libros extends Model
         'tematica',
         'autores_id'
     ];
+
+    /**
+     * Relación con el autor
+     */
+    public function autor()
+    {
+        return $this->belongsTo(Autores::class, 'autores_id');
+    }
 }

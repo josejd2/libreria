@@ -13,9 +13,25 @@ class Alquilan extends Model
     protected $table = 'alquilan';
     // Campos asignables masivamente
     protected $fillable = [
-        'clientes_id',
+        'usuarios_id',
         'libros_id',
         'fecha_devolucion',
         'precio'
     ];
+
+    /**
+     * Relación con el modelo Usuarios
+     */
+    public function usuario()
+    {
+        return $this->belongsTo(Usuarios::class, 'usuarios_id');
+    }
+
+    /**
+     * Relación con el modelo Libros
+     */
+    public function libro()
+    {
+        return $this->belongsTo(Libros::class, 'libros_id');
+    }
 }
